@@ -7,5 +7,3 @@ document.addEventListener('DOMContentLoaded', function () {
     M.Collapsible.init(items);
 
 });
-
-console.log('initialized');
