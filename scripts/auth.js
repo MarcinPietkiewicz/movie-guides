@@ -12,9 +12,19 @@ signupForm.addEventListener('submit', e => {
     // sign up the user
 
     auth.createUserWithEmailAndPassword(email, password)
-        .then(credential => {
+        .then(() => {
             const modal = document.querySelector('#modal-signup');
             M.Modal.getInstance(modal).close();
             signupForm.reset();
-        })
+        }).catch(err => { console.log(err.message) });
+    console.log(`successful creation of account for ${email}`);
+});
+
+// logout
+const logout = document.querySelector('#logout');
+logout.addEventListener('click', e => {
+    e.preventDefault();
+    auth.signOut().then(() => {
+        console.log('this user has signed out');
+    });
 })
